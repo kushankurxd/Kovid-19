@@ -2,7 +2,7 @@
 
 ### Coronavirus awareness project using [Next.js](https://nextjs.org/). A [React.js](https://reactjs.org/) framework
 
-### Try [Demo](https://kovid-19-xd.netlify.app/) here, with now dark theme supported. 
+#### Try [Demo](https://kovid-19-xd.netlify.app/) here, with now dark theme supported. 
 
 #### Screenshots
 ![screely-1592095646692](https://user-images.githubusercontent.com/37204706/84601426-97e9c580-ae9d-11ea-9388-91cd281ee6d0.jpg)
