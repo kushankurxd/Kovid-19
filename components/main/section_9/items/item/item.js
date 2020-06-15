@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { connect } from "react-redux";
 
 const item = (props) => {
   const [openSection, setOpenSection] = useState(false);
@@ -12,13 +13,23 @@ const item = (props) => {
   }, [props]);
 
   return (
-    <div className="accordion-item" onClick={clickHandler}>
+    <div
+      className={props.darkTheme ? "accordion-item dark" : "accordion-item"}
+      onClick={clickHandler}
+    >
       <h5
         className={
-          openSection ? "accordion-title" : "accordion-title collapsed"
+          openSection
+            ? "accordion-title"
+            : props.darkTheme
+            ? "accordion-title collapsed dark"
+            : "accordion-title collapsed"
         }
       >
-        {props.title} <span className="accordion-icon"></span>
+        {props.title}{" "}
+        <span
+          className={props.darkTheme ? "accordion-icon dark" : "accordion-icon"}
+        ></span>
       </h5>
       <div className={openSection ? "collapse show" : "collapse"}>
         <div className="accordion-content">{props.body}</div>
@@ -27,4 +38,10 @@ const item = (props) => {
   );
 };
 
-export default item;
+const mapStateToProps = (state) => {
+  return {
+    darkTheme: state.theme.darkTheme,
+  };
+};
+
+export default connect(mapStateToProps)(item);

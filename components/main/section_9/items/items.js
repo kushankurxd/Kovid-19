@@ -1,4 +1,5 @@
 import Item from "./item/item";
+import { connect } from "react-redux";
 
 const items = (props) => {
   const list = props.sections.map((item, index) => (
@@ -6,9 +7,17 @@ const items = (props) => {
   ));
   return (
     <div className="tab-pane fade show active">
-      <div className="accordion">{list}</div>
+      <div className={props.darkTheme ? "accordion dark" : "accordion"}>
+        {list}
+      </div>
     </div>
   );
 };
 
-export default items;
+const mapStateToProps = (state) => {
+  return {
+    darkTheme: state.theme.darkTheme,
+  };
+};
+
+export default connect(mapStateToProps)(items);

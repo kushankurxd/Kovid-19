@@ -1094,7 +1094,11 @@ const section_9 = (props) => {
           <div className={["row g-gs"].join(" ")}>
             <div className="col-lg-4">
               <ul
-                className={["nav nav-tabs nav-tabs-vr nav-tabs-btns"].join(" ")}
+                className={
+                  props.darkTheme
+                    ? "nav nav-tabs nav-tabs-vr nav-tabs-btns dark"
+                    : "nav nav-tabs nav-tabs-vr nav-tabs-btns"
+                }
               >
                 {tabList}
               </ul>
